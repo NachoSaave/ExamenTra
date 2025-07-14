@@ -56,15 +56,18 @@ def actualizar_precio():
         for k, v in stock.items():
             print(k,v)
         nuevo=input("Ingrese el modelo a actualizar: ")
-        p=int(input("Ingrese el nuevo precio: "))
         if nuevo in stock:
-            stock[nuevo][0]=p
-            print(f"El precio del modelo {nuevo} ha sido actualizado a {p}.")
-            res=input("Desea actualizar otro modelo? (s/n)").lower()
-            if res=='n':
-                break
+            p=int(input("Ingrese el nuevo precio: "))
+            if nuevo in stock:
+                stock[nuevo][0]=p
+                print(f"El precio del modelo {nuevo} ha sido actualizado a {p}.")
+                res=input("Desea actualizar otro modelo? (s/n)").lower()
+                if res=='n':
+                    break
+            else:   
+                print(f"El modelo {nuevo} no existe en el stock.")
         else:
-            print(f"El modelo {nuevo} no existe en el stock.")
+            print("El modelo no existe!!")
  
 
 while True:
